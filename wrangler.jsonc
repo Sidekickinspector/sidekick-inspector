@@ -4,12 +4,21 @@
   "main": "./dist/server/index.js",
   "keep_vars": true,
   "compatibility_date": "2026-09-09",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist/client"
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "ARTICLES_DB",
+      "database_name": "sidekick-articles",
+      "database_id": "da1113ac-6930-4aee-97c4-a8a1c3cbae20"
+    }
+  ]
 }

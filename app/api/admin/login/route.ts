@@ -9,7 +9,11 @@ export async function POST(request: Request) {
     target.searchParams.set("error", "1");
     return Response.redirect(target, 303);
   }
-  const response = Response.redirect(new URL("/admin", request.url), 303);
-  response.headers.set("Set-Cookie", sessionCookie(await createSession()));
-  return response;
+  return new Response(null, {
+    status: 303,
+    headers: {
+      Location: new URL("/admin", request.url).toString(),
+      "Set-Cookie": sessionCookie(await createSession()),
+    },
+  });
 }
