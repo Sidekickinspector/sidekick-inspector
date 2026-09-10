@@ -11,7 +11,7 @@ type RuntimeEnv = {
 };
 
 function settings() {
-  const runtime = env as unknown as RuntimeEnv;
+  const runtime = { ADMIN_EMAIL: env.ADMIN_EMAIL ?? process.env.ADMIN_EMAIL, ADMIN_PASSWORD: env.ADMIN_PASSWORD ?? process.env.ADMIN_PASSWORD, SESSION_SECRET: env.SESSION_SECRET ?? process.env.SESSION_SECRET } as RuntimeEnv;
   if (!runtime.ADMIN_EMAIL || !runtime.ADMIN_PASSWORD || !runtime.SESSION_SECRET) {
     throw new Error("Login admin belum dikonfigurasi.");
   }
